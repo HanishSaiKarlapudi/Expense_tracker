@@ -12,21 +12,27 @@ const passwordResetRoutes = require('./routes/passwordResetRoutes');
 const app = express();
 
 //middleware
-app.use(cors(
-    {
-        origin: function(origin, callback) {
-            // Allow localhost on any port for development
-            if (!origin || origin.includes('localhost') || origin.includes('127.0.0.1')) {
-                callback(null, true);
-            } else {
-                callback(new Error('Not allowed by CORS'));
-            }
-        },
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
-        credentials: true
+app.use(cors({
+  origin: function(origin, callback) {
+    const allowedOrigins = [
+      process.env.CLIENT_URL,        // your Vercel URL (set in env)
+    ];
+
+    // Allow localhost on any port for development
+    if (!origin || origin.includes('localhost') || origin.includes('127.0.0.1')) {
+      return callback(null, true);
     }
-));
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    callback(new Error('Not allowed by CORS'));
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 app.use(express.json());
 
