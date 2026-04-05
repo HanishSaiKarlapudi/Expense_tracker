@@ -1,0 +1,21 @@
+{
+  "name": "expense_tracker",
+  "version": "1.0.0",
+  "description": "This is an Expense tracker that uses machine learning techniques to predict budget failures and suggest preventive measures. It also provides insightful visualisation and an interactive GUI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HanishSaiKarlapudi/Expense_tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HanishSaiKarlapudi/Expense_tracker/issues"
+  },
+  "homepage": "https://github.com/HanishSaiKarlapudi/Expense_tracker#readme"
+}
